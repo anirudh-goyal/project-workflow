@@ -17,7 +17,7 @@ These documents are the shared working context for the user and coding agent. Ke
 | [[design]] | Problem, scope, proposed approach, supplied constraints, assumptions, alternatives, and open questions. Distinguish proposed and agreed sections. |
 | [[requirements]] | Desired observable behavior, R- IDs, acceptance criteria, confirmation and verification status. |
 | [[tasks]] | Executable work, T- IDs, linked requirements, dependencies, status, completion conditions, and evidence. |
-| [[decisions]] | Consequential choices, D- IDs, rationale, alternatives, tradeoffs, provenance, and superseded decisions. |
+| [[decisions]] | Short decision notes, who decided (agent, human, or both), and useful context. |
 | [[technical_architecture]] | The system as implemented: existing behavior, our changes, execution paths, state ownership, failure handling, code/test references, and limitations. |
 | [[progress]] | Current working state plus an append-only chronological record of meaningful work, discoveries, failed approaches, verification, and real commit references. |
 
@@ -29,7 +29,7 @@ Design describes intent; architecture describes reality. Requirements describe o
 | --- | --- |
 | Requirement or constraint changes | Update requirements and affected design/tasks; preserve the reason and source of scope changes. |
 | Task begins or changes state | Update tasks immediately and progress.md's current task/next action. |
-| Consequential decision is proposed or adopted | Record it in decisions with its actual status and provenance; update affected design. |
+| Consequential decision is proposed or adopted | Record a short note, making clear whether it is proposed or decided and who decided; update affected design. |
 | A meaningful behavior change is implemented | Update the relevant architecture section and task state, even if unverified or broken. |
 | A relevant check runs | Record command, working directory, result, and what it establishes. Link requirement/task evidence and update statuses accurately. |
 | A blocker or useful failed approach is discovered | Record it when discovered, including the attempted approach, observation, and next action. |
@@ -63,7 +63,7 @@ A non-code task can move directly to done when its appropriate completion condit
 
 ## Decisions
 
-Record only consequential choices: behavior, architecture, persistence, concurrency, interfaces, dependencies, or scope. Include status (`proposed`, `adopted`, `superseded`), source (user, stakeholder, joint discussion, or agent implementation judgment), alternatives, rationale, tradeoff, and related requirements/tasks/code. Routine decisions within authorized scope do not require a separate approval; material choices outside agreed scope do.
+Record meaningful decisions as short, free-form notes. State the decision and who decided it: **agent**, **human**, or **both**. Include context, source, reasoning, alternatives, tradeoffs, and references where useful; do not require separate fields for each. Use `both` only for an actual joint decision, and say when attribution is unknown. Make proposals and replaced decisions clear without imposing a fixed status schema. Dates and IDs are optional navigation aids. Routine decisions within authorized scope do not require a separate approval; material choices outside agreed scope do.
 
 ## References and evidence
 

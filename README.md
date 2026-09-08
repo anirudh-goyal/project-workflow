@@ -189,7 +189,7 @@ Open the notes directory as an Obsidian vault to edit and navigate the documents
 | `design.md` | Proposed and agreed design, constraints, alternatives, open questions |
 | `requirements.md` | Desired outcomes, acceptance criteria, confirmation, verification evidence |
 | `tasks.md` | Work items, dependencies, statuses, completion conditions, next actions |
-| `decisions.md` | Consequential choices, rationale, tradeoffs, provenance, superseded decisions |
+| `decisions.md` | Short decision notes, who decided (agent, human, or both), and useful context |
 | `technical_architecture.md` | Actual implementation with concrete execution paths and source references |
 | `progress.md` | Current state and chronological changes, discoveries, check results, blockers, and commit references |
 
