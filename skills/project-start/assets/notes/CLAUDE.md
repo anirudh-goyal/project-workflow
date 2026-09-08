@@ -63,7 +63,7 @@ A non-code task can move directly to done when its appropriate completion condit
 
 ## Decisions
 
-Record meaningful decisions as short, free-form notes. State the decision and who decided it: **agent**, **human**, or **both**. Include context, source, reasoning, alternatives, tradeoffs, and references where useful; do not require separate fields for each. Use `both` only for an actual joint decision, and say when attribution is unknown. Make proposals and replaced decisions clear without imposing a fixed status schema. Dates and IDs are optional navigation aids. Routine decisions within authorized scope do not require a separate approval; material choices outside agreed scope do.
+Record meaningful decisions in a table with **Decision**, **Decided by**, and **Notes** columns. Decided by is **agent**, **human**, or **both**; keep the Notes column free-form. Include context, source, reasoning, alternatives, tradeoffs, and references where useful; do not require separate fields for each. Use `both` only for an actual joint decision, and say when attribution is unknown. Make proposals and replaced decisions clear without imposing a fixed status schema. Dates and IDs are optional navigation aids. Routine decisions within authorized scope do not require a separate approval; material choices outside agreed scope do.
 
 ## References and evidence
 
