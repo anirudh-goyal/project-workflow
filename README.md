@@ -16,15 +16,15 @@ Setup uses normal Claude Code features and file operations. No setup scripts, la
 
 ## What is included
 
-| Path | Purpose |
-| --- | --- |
-| [CLAUDE.md](CLAUDE.md) | General communication, collaboration, implementation, and documentation preferences |
-| [templates/CLAUDE.local.md](templates/CLAUDE.local.md) | Project-local binding to the notes directory |
-| [skills/project-start](skills/project-start/SKILL.md) | Initialize or adopt a documentation workspace and establish project context |
-| [skills/project-plan](skills/project-plan/SKILL.md) | Refine a design into requirements and executable tasks |
-| [skills/project-resume](skills/project-resume/SKILL.md) | Reconstruct working context in a fresh session |
-| [skills/project-walkthrough](skills/project-walkthrough/SKILL.md) | Explain the implementation, prepare a demo, or check understanding |
-| [Note templates](skills/project-start/assets/notes/CLAUDE.md) | The ongoing documentation rules and six starter documents |
+| Path                                                              | Purpose                                                                             |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| [CLAUDE.md](CLAUDE.md)                                            | General communication, collaboration, implementation, and documentation preferences |
+| [templates/CLAUDE.local.md](templates/CLAUDE.local.md)            | Project-local binding to the notes directory                                        |
+| [skills/project-start](skills/project-start/SKILL.md)             | Initialize or adopt a documentation workspace and establish project context         |
+| [skills/project-plan](skills/project-plan/SKILL.md)               | Refine a design into requirements and executable tasks                              |
+| [skills/project-resume](skills/project-resume/SKILL.md)           | Reconstruct working context in a fresh session                                      |
+| [skills/project-walkthrough](skills/project-walkthrough/SKILL.md) | Explain the implementation, prepare a demo, or check understanding                  |
+| [Note templates](skills/project-start/assets/notes/CLAUDE.md)     | The ongoing documentation rules and six starter documents                           |
 
 Install the **four skill directories together, including their assets and references**. The skills share the context-resolution reference shipped inside `project-start`. Copying only the `SKILL.md` files will break the package.
 
