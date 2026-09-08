@@ -1,37 +1,27 @@
 # Project Workflow
 
-My preferred way of working on software projects with coding agents: preserve context across sessions, keep decisions explicit, and stay informed as the implementation evolves.
+My preferred way of working with coding agents: keep context across sessions, make decisions explicit, and stay informed as the code changes.
 
-Claude follows my working preferences and maintains a shared set of Markdown notes while we work. A fresh session reads those notes and checks the actual code before continuing. Obsidian provides a convenient way to read and edit the documents, but any Markdown editor works.
+Claude follows my working preferences and maintains shared Markdown notes during development. A new session reads the notes and checks the code before continuing. The notes work in Obsidian or any Markdown editor.
 
-The setup uses normal Claude Code features. No scripts, launcher, or plugins are required.
-
-## What is in this repository
+## Structure
 
 ```text
-project-workflow/
-    CLAUDE.md
-    skills/
-        project-start/SKILL.md
-        project-resume/SKILL.md
-    templates/
-        CLAUDE.local.md
-        notes/
-            CLAUDE.md
-            design.md
-            requirements.md
-            tasks.md
-            decisions.md
-            technical_architecture.md
-            progress.md
+CLAUDE.md                      General working preferences
+skills/
+    project-start/SKILL.md      Begin project work
+    project-resume/SKILL.md     Continue in a fresh session
+templates/
+    CLAUDE.local.md             Tell Claude where the notes live
+    notes/
+        CLAUDE.md              How to maintain the notes
+        design.md
+        requirements.md
+        tasks.md
+        decisions.md
+        technical_architecture.md
+        progress.md
 ```
-
-- **[CLAUDE.md](CLAUDE.md):** general preferences for communication, collaboration, code, and keeping notes current.
-- **[Skills](skills/):** two commands for beginning a project and continuing it in a new session.
-- **[CLAUDE.local.md template](templates/CLAUDE.local.md):** tells Claude where a particular project's notes live.
-- **[Note templates](templates/notes/):** copied into your project's notes folder during setup. The [notes CLAUDE.md](templates/notes/CLAUDE.md) explains how to maintain them. Each of the six documents includes an illustrative example.
-
-Once setup is complete, the installed skills work with your project notes. They do not need the downloaded repository or their own template copies.
 
 ## Set up with Claude
 
@@ -41,11 +31,9 @@ Clone this repository:
 git clone https://github.com/anirudh-goyal/project-workflow.git
 ```
 
-Give Claude access to the downloaded repository and your target directories, using `/add-dir` if needed. Replace the example paths below with real absolute paths.
+Give Claude access to the downloaded repository and target directories using `/add-dir` as needed. Then use one of these prompts with your actual paths.
 
-### Existing codebase
-
-Start Claude in your codebase and send:
+**Existing codebase** — start Claude in the codebase:
 
 ```text
 Read /absolute/path/project-workflow/README.md and set up this workflow.
@@ -53,14 +41,12 @@ Read /absolute/path/project-workflow/README.md and set up this workflow.
 Codebase: /absolute/path/my-project
 Notes: /absolute/path/my-project-notes
 
-Install preferences and skills globally if possible, otherwise locally
-in this project. Preserve existing instructions, notes, and code changes.
-Initialize the notes, but do not change application code or commit/push.
+Install globally if possible, otherwise locally in this project.
+Preserve existing work. Set up the notes without changing application
+code or committing/pushing.
 ```
 
-### New codebase
-
-Start Claude in the directory where you want to create the project and send:
+**New codebase** — start Claude in the parent directory:
 
 ```text
 Read /absolute/path/project-workflow/README.md and set up this workflow.
@@ -68,69 +54,61 @@ Read /absolute/path/project-workflow/README.md and set up this workflow.
 New codebase: /absolute/path/my-project
 Notes: /absolute/path/my-project-notes
 
-Create the codebase directory and initialize a local Git repository.
-Install preferences and skills globally if possible, otherwise locally.
-Prepare the notes, but do not scaffold an application or commit/push yet.
+Create the directory and initialize Git. Install globally if possible,
+otherwise locally. Prepare the notes without scaffolding an application
+or committing/pushing.
 
 My initial idea is: [describe the project]
 ```
 
-If you do not want Git yet, omit the instruction to initialize it. If the directory already contains a project, adopt it rather than replacing it.
-
 ## Setup instructions for Claude
 
-Use the user's supplied paths. Preserve existing files and customizations, inspect Git status, and merge compatible instructions instead of overwriting them. Ask only about missing information, meaningful conflicts, or required access.
+Use the supplied paths. Inspect existing instructions and Git status, preserve customizations, and merge additions without duplicating earlier setup. Ask about missing information, conflicting instructions, or required access.
 
-1. **Install preferences and skills.** Merge this repository's `CLAUDE.md` into `~/.claude/CLAUDE.md` and copy the two skill folders into `~/.claude/skills/`. For local installation, put preferences in the codebase's `CLAUDE.local.md` and skills in its `.claude/skills/`. Preserve the codebase's shared `CLAUDE.md`.
-2. **Prepare the notes.** Copy missing files from `templates/notes/` into the chosen notes folder. Keep existing notes and their rules. Record the actual codebase and notes paths in `progress.md`; leave unknown details unknown.
-3. **Tell Claude where the notes are.** Add the section from `templates/CLAUDE.local.md` to the codebase's `CLAUDE.local.md`, replacing `../notes` with the correct path. Clarify before changing a different existing notes location.
-4. **Check the result.** Verify both skills, all seven note files, and the notes path. Keep newly installed personal files out of commits using Git's local exclude file; preserve existing exclusions and tracked files. Do not commit or push as part of setup.
-5. **Begin.** Tell the user the installed locations and next steps below. If asked to initialize notes in the current session, explicitly read and follow the installed start skill. Setup alone does not authorize application implementation.
+1. **Install preferences and skills.** Merge [CLAUDE.md](CLAUDE.md) into `~/.claude/CLAUDE.md`; copy the two [skill folders](skills/) into `~/.claude/skills/`. For local installation, use the codebase's `CLAUDE.local.md` for preferences and `.claude/skills/` for skills. Preserve its shared `CLAUDE.md`.
+2. **Create the notes.** Copy missing files from [templates/notes](templates/notes/) into the chosen notes folder. Keep existing notes and record the actual codebase and notes paths in `progress.md`.
+3. **Record the notes location.** Add [templates/CLAUDE.local.md](templates/CLAUDE.local.md) to the codebase's `CLAUDE.local.md`, using the correct notes path. Clarify before changing an existing location.
+4. **Check and finish.** Verify both skills, the seven note files, and the notes path. Exclude newly installed local-only files using Git's local exclude file, preserving tracked files and existing exclusions. Report the locations and how to begin below.
 
-Repeated setup should reuse existing files without duplicating instructions or resetting notes. Create directories and initialize Git only as requested. Keep project notes outside this reusable workflow repository.
+Keep project notes outside this downloaded repository. Create directories and initialize Git as requested; setup alone does not authorize application changes or commits. To initialize notes in the current session, read and follow the installed start skill explicitly.
 
-## Daily use
+## Working on a project
 
-Open the notes folder as an Obsidian vault. Launch Claude normally from the codebase:
+Open the notes folder as an Obsidian vault if desired. Start a fresh Claude session in the codebase:
 
 ```bash
 claude
 ```
 
-Ensure Claude can access the sibling notes folder:
+Grant access to the notes folder when needed:
 
 ```text
 /add-dir ../my-project-notes
 ```
 
-**First session:** run `/project-start`. Claude reads your initial notes, inspects the relevant code, and helps establish the project direction. You can supply the notes path directly: `/project-start ../my-project-notes`.
+- **Begin:** `/project-start` reads initial notes and helps establish the next steps.
+- **Work:** talk normally to refine the design, create tasks, implement changes, or explain code. Notes update automatically throughout.
+- **Continue in a fresh session:** `/project-resume` reads the notes and checks the code and working tree.
 
-**During work:** talk normally. Ask to refine the design, break it into requirements and tasks, implement a task, or explain the code. Claude updates the notes as meaningful changes happen; no separate planning or checkpoint command is needed.
+Both skills use the notes path in `CLAUDE.local.md`. You can also supply a path directly, such as `/project-start ../my-project-notes`.
 
-**Fresh session:** run `/project-resume`. Claude reads the notes, checks the actual code and working tree, and identifies what to do next. Ensure notes access is available in the new session too.
+## The notes
 
-## The project notes
-
-| File | What it records |
+| File | Purpose |
 | --- | --- |
-| `design.md` | What we propose to build and how, including open questions |
-| `requirements.md` | What the system must do and how we know it works |
-| `tasks.md` | The work needed to meet those requirements, with statuses and next actions |
-| `decisions.md` | A table of decisions, who decided (agent, human, or both), and free-form notes |
-| `technical_architecture.md` | How the implemented system works, with references to real code |
-| `progress.md` | Current state and dated bullet entries covering changes, checks, blockers, and commits |
+| `design.md` | What we propose to build and how |
+| `requirements.md` | What the system must do and its acceptance criteria |
+| `tasks.md` | Work items, statuses, dependencies, and next actions |
+| `decisions.md` | Decision, who decided (agent, human, or both), and free-form notes |
+| `technical_architecture.md` | How the implementation works, with code references |
+| `progress.md` | Current state and dated progress bullets, including checks and commits |
 
-The notes folder's `CLAUDE.md` contains the update rules. Claude updates affected documents when requirements, decisions, implementation, task status, or verification change. It records failures and partial progress as well as successes.
+Each document includes a fictional example. The [notes instructions](templates/notes/CLAUDE.md) define frequent updates as requirements, decisions, implementation, and results change.
 
-The examples are fictional and separate from real project content. The workflow guides agent behavior; it does not mechanically guarantee that notes are updated. A useful check is whether a fresh session can accurately recover the current task from the notes and code.
+## Access and loading
 
-## A few setup details
+A path in `CLAUDE.local.md` is relative to that file; a path passed to a skill is relative to Claude's working directory. `../notes` is a sibling folder, while `/notes` is at the filesystem root.
 
-- `../notes` means a sibling folder; `/notes` means a folder at the filesystem root.
-- A notes path in `CLAUDE.local.md` is relative to that file. A path passed to a skill is relative to Claude's working directory.
-- A path written in Markdown does not grant access. Use `/add-dir` when needed.
-- Additional directories' `CLAUDE.md` files are not automatically loaded by default. The codebase's local instructions and both skills explicitly tell Claude to read the notes instructions.
-- After installing preferences and skills, start a fresh session. Use `/context` to check loaded instructions and confirm the two skills are available.
-- If upgrading from the earlier four-skill version, remove the old `project-plan` and `project-walkthrough` installations only after checking for your custom changes. Replace the start/resume instructions with the current versions; retain your existing project notes. This repository update does not change global installations automatically.
+Writing a path does not grant access: use `/add-dir` as needed. Additional folders' instructions are not automatically loaded by default, so the skills and local instructions explicitly tell Claude to read the notes' `CLAUDE.md`. After installation, start a fresh session and use `/context` to check loaded instructions.
 
-Official references: [Claude Code memory](https://code.claude.com/docs/en/memory) and [skills](https://code.claude.com/docs/en/skills).
+Official documentation: [Claude Code memory](https://code.claude.com/docs/en/memory) and [skills](https://code.claude.com/docs/en/skills).

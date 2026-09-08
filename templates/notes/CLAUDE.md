@@ -1,75 +1,53 @@
-# Project notes workflow
+# Keeping project notes
 
-These documents are the shared working context for the user and coding agent. Keep them current automatically while work happens, including incomplete or unsuccessful work. This file governs documentation for the bound codebase throughout the session, not only edits inside this folder.
+Maintain these documents throughout project work, including failures and partial progress. Update affected sections when something changes; do not wait for reminders or session end.
 
-## Read and recover
+## What goes where
 
-- Read this file at project start and in every fresh session before planning or implementation.
-- Read progress.md's current state, active requirements/tasks, relevant design/decisions/architecture, then verify relevant claims against the codebase and working tree.
-- Resolve code paths against the codebase recorded in progress.md. Check a moved or different checkout before assuming the notes apply.
-- Treat source behavior, executed checks, and current user instructions as evidence. Surface material contradictions; never silently merge conflicting intent.
-- Read older history on demand. Do not load the entire repository or repeat all past checks solely to recover context.
-
-## Document ownership
-
-| File | Maintained content |
+| File | Purpose |
 | --- | --- |
-| [[design]] | Problem, scope, proposed approach, supplied constraints, assumptions, alternatives, and open questions. Distinguish proposed and agreed sections. |
-| [[requirements]] | Desired observable behavior, R- IDs, acceptance criteria, confirmation and verification status. |
-| [[tasks]] | Executable work, T- IDs, linked requirements, dependencies, status, completion conditions, and evidence. |
-| [[decisions]] | Short decision notes, who decided (agent, human, or both), and useful context. |
-| [[technical_architecture]] | The system as implemented: existing behavior, our changes, execution paths, state ownership, failure handling, code/test references, and limitations. |
-| [[progress]] | Current working state plus an append-only chronological record of meaningful work, discoveries, failed approaches, verification, and real commit references. |
+| [[design]] | Proposed and agreed approach, constraints, and open questions |
+| [[requirements]] | Desired behavior and acceptance criteria |
+| [[tasks]] | Work items, dependencies, statuses, and completion evidence |
+| [[decisions]] | What was decided, who decided, and useful context |
+| [[technical_architecture]] | How the current implementation works, with code references |
+| [[progress]] | Current state and dated bullet entries recording work and results |
 
-Design describes intent; architecture describes reality. Requirements describe outcomes; tasks describe work. Link between them rather than repeating full explanations.
+Keep proposed design separate from implemented architecture. Link between notes rather than repeating explanations. Examples in the templates are fictional; keep them separate from live project content.
 
-## Update as work happens
+## When to update
 
-| Event | Required update |
-| --- | --- |
-| Requirement or constraint changes | Update requirements and affected design/tasks; preserve the reason and source of scope changes. |
-| Task begins or changes state | Update tasks immediately and progress.md's current task/next action. |
-| Consequential decision is proposed or adopted | Record a short note, making clear whether it is proposed or decided and who decided; update affected design. |
-| A meaningful behavior change is implemented | Update the relevant architecture section and task state, even if unverified or broken. |
-| A relevant check runs | Record command, working directory, result, and what it establishes. Link requirement/task evidence and update statuses accurately. |
-| A blocker or useful failed approach is discovered | Record it when discovered, including the attempted approach, observation, and next action. |
-| A commit is created under separate authorization | Record the actual hash and scope; distinguish changes left uncommitted. |
-| Before a response or session handoff | Reconcile any pending notes updates for work already performed. Do not defer all maintenance to this point. |
+- **Requirements or design change:** update the affected documents and tasks, including the reason for the change.
+- **A task starts or changes state:** update its status and the current task in progress.
+- **A decision is made:** add a decision note and update affected design sections.
+- **Behavior is implemented:** update architecture and task status, even if unfinished or unverified.
+- **A check runs or a blocker appears:** record the result, limitations, and next action in progress. Update affected task/requirement statuses.
+- **A commit is created:** record its actual hash and scope. Otherwise describe changes as uncommitted.
+- **Before responding:** reconcile any remaining updates for work already performed.
 
-- Update affected sections after each meaningful event or tightly related edit/check batch. Do not wait for a checkpoint command or session end.
-- Do not log every file read or shell command. Group repeated checks of the same unchanged state; preserve failures and changed results that matter.
-- Keep current-state sections concise. Append dated progress entries; never rewrite historical evidence to appear more successful.
-- Record partial state honestly. Do not manufacture certainty, requirements, decisions, commit hashes, test results, or user agreement.
-- Preserve user edits and customized structure. Resolve contradictions with the user when evidence cannot establish intent.
-- Note updates are part of task completion. Do not mark work done while affected documents describe an obsolete implementation.
+Record meaningful events, not every tool call. Append dated progress bullets; preserve earlier results and decisions. Keep current-state sections concise. Respect user edits, and ask about contradictions that the code or conversation cannot resolve.
 
-## Requirements and task status
+## Statuses
 
-Requirements use stable R-001-style IDs. Record confirmation (`proposed` or `confirmed`) separately from delivery (`not_started`, `implemented`, or `verified`). Superseded or withdrawn requirements retain an explanation and link to replacements. Verification requires evidence for the actual acceptance criteria; implementation alone is insufficient.
+Requirements have stable R- IDs, confirmation (`proposed` or `confirmed`), and delivery status (`not_started`, `implemented`, or `verified`). Verification needs evidence for the acceptance criteria. Retain a short explanation when requirements change or are withdrawn.
 
-Tasks use stable T-001-style IDs and these statuses:
+Tasks have stable T- IDs and these statuses:
 
 | Status | Meaning |
 | --- | --- |
-| todo | Work has not started. |
-| in_progress | Work is underway; identify the current next action. |
-| implemented | The deliverable exists; required verification remains. |
-| verified | Relevant completion checks passed; final documentation reconciliation may remain. |
-| done | Completion evidence is recorded and affected documentation is current. |
-| blocked | Record the blocker, prior state, and action needed to unblock. |
-| deferred | Record why it is deferred and who made that scope decision. |
+| todo | Not started |
+| in_progress | Work underway |
+| implemented | Deliverable exists; verification remains |
+| verified | Checks passed; documentation may remain |
+| done | Completion evidence recorded and notes current |
+| blocked | Include the blocker and next action |
+| deferred | Include the reason and who decided |
 
-A non-code task can move directly to done when its appropriate completion condition is met; do not invent executable checks. Failed checks or changed relevant code require an accurate status adjustment and preserved history. Do not label user review as complete unless it happened.
+Non-code tasks can go directly to done when their completion condition is met. Adjust statuses when failures or code changes invalidate earlier evidence.
 
-## Decisions
+## Writing notes
 
-Record meaningful decisions in a table with **Decision**, **Decided by**, and **Notes** columns. Decided by is **agent**, **human**, or **both**; keep the Notes column free-form. Include context, source, reasoning, alternatives, tradeoffs, and references where useful; do not require separate fields for each. Use `both` only for an actual joint decision, and say when attribution is unknown. Make proposals and replaced decisions clear without imposing a fixed status schema. Dates and IDs are optional navigation aids. Routine decisions within authorized scope do not require a separate approval; material choices outside agreed scope do.
-
-## References and evidence
-
-- Use Obsidian wikilinks such as [[design]] between notes. Use folder-qualified targets when names collide in a larger vault.
-- For source code, use relative Markdown file links from the note to the real file plus its precise function/class name. Prefer paths and symbols over brittle line numbers alone. Repair affected links when files move.
-- Separate supplied facts, inspected behavior, assumptions, proposals, and executed evidence.
-- A check record includes an absolute date/time with time zone, actual working directory and command, result, and relevant code state (HEAD plus dirty-state description when applicable). Refer to it elsewhere instead of duplicating output.
-- Record short relevant output or counts, not raw noisy logs. Do not copy credentials, secrets, or unrelated personal material into notes.
-- Creating or updating notes does not authorize commits, pushes, or changes to unrelated configuration. Record uncommitted work as uncommitted.
+- Decisions use **Decision**, **Decided by**, and **Notes** columns. Decided by is **agent**, **human**, or **both**; say when it is unknown. Include reasoning, alternatives, tradeoffs, and references only where useful. Make proposals and replaced decisions clear. Do not infer joint agreement from silence.
+- Use Obsidian wikilinks between notes and relative Markdown links to real code files, with function/class names. Use folder-qualified note links when names collide.
+- For verification, record the actual command, working directory, result, date/time with time zone, and relevant code state. Summarize useful output rather than copying full logs or secrets.
+- Never invent requirements, agreement, test results, or commit hashes. Mark assumptions and unverified behavior explicitly.

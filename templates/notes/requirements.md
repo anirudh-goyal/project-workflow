@@ -13,9 +13,7 @@ Record desired behavior and observable acceptance criteria. Keep confirmation se
 
 Retain the reason and source when scope changes.
 
-## Example — illustrative only
-
-This fictional customer-import example demonstrates the format. It is not a project requirement, decision, implementation, or verification result. Keep examples separate from live entries; do not copy their IDs or results into project state.
+## Example (fictional)
 
 | ID            | Requirement                                      | Acceptance criteria                                                               | Source / confirmation      | Delivery status | Evidence                                                        |
 | ------------- | ------------------------------------------------ | --------------------------------------------------------------------------------- | -------------------------- | --------------- | --------------------------------------------------------------- |

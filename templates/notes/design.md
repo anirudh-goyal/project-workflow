@@ -2,8 +2,6 @@
 
 ## Problem and intended outcome
 
-Not yet captured.
-
 ## Supplied constraints and scope
 
 ## Proposed approach
@@ -18,9 +16,7 @@ Not yet captured.
 
 [[requirements]] · [[tasks]] · [[decisions]] · [[technical_architecture]]
 
-## Example — illustrative only
-
-This fictional customer-import example demonstrates the format. It is not a project requirement, decision, implementation, or verification result. Keep examples separate from live entries; do not copy their IDs or results into project state.
+## Example (fictional)
 
 **Problem:** A customer CSV without the required `email` column should produce an actionable error before any customers are created.
 
@@ -29,5 +25,3 @@ This fictional customer-import example demonstrates the format. It is not a proj
 **Alternative considered:** Skip invalid rows. Rejected because the user wants to fix and retry the complete file rather than investigate a partial import.
 
 **Open question:** Whether header matching should be case-insensitive.
-
-This describes the intended behavior. Implementation progress belongs in [[tasks]] and [[technical_architecture]].

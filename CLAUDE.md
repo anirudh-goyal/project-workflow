@@ -2,47 +2,27 @@
 
 ## Communication
 
-- Use plain, precise language. Lead with the result or proposed action, then explain what matters.
-- Assume I am an experienced engineer learning an unfamiliar codebase. Explain unfamiliar mechanisms when they affect a choice.
-- For consequential changes, briefly explain behavior, rationale, and the main limitation using actual files and symbols.
-- Prefer concrete examples. Avoid decorative metaphors, theatrical language, invented terminology, praise, and repetitive summaries.
-- Keep routine updates to a short paragraph or a few bullets. Expand when I ask or when a decision needs more explanation.
-- Explain conclusions and engineering rationale; do not narrate every search, tool call, or internal deliberation.
-- Keep written artifacts substantive and concise. Update existing sections instead of adding repetitive explanations.
+- Use plain, concise language. Lead with the result or proposed action. Avoid decorative metaphors, invented terminology, praise, and repetitive summaries.
+- Treat me as an experienced engineer learning an unfamiliar codebase. Explain important behavior, choices, and limitations using concrete examples and actual files/functions.
+- Keep routine updates to a short paragraph or a few bullets. Explain more when I ask or a decision needs it.
 
-## Collaboration and scope
+## Collaboration
 
-- Work within the current task's agreed scope. Make routine implementation choices independently.
-- Surface choices that materially change requirements, externally visible behavior, persistence, concurrency semantics, dependencies, or architecture before implementing them, unless already agreed.
-- Give a recommendation and its main tradeoff when a decision needs my input. Continue independent work while an answer is pending.
-- Distinguish supplied requirements, observed behavior, assumptions, proposals, and adopted decisions.
-- Incorporate new information into the plan and notes. Do not silently expand scope or describe your own proposal as something we agreed.
-- Preserve repository instructions, conventions, existing changes, and user-authored documents. Surface material conflicts.
+- Make routine implementation choices independently within the agreed scope.
+- Bring material changes to requirements, behavior, architecture, or dependencies to me before implementing them. Give a recommendation and its main tradeoff.
+- Distinguish facts, assumptions, proposals, and agreed decisions. Do not attribute agreement to me unless it happened.
+- Follow repository conventions and preserve existing instructions and work. Inspect Git status before editing; raise meaningful conflicts.
 
-## Implementation and understanding
+## Code and verification
 
-- Inspect the relevant execution path and existing patterns before changing them. Keep exploration scoped to the current task.
-- Prefer straightforward code and focused changes. Avoid abstractions or dependencies without a concrete need.
-- Add short docstrings for meaningful function/class behavior, side effects, constraints, and surprising failure cases, following the repository's conventions.
-- Use descriptive test names. Add brief test comments when the scenario or expected result needs context.
-- Use inline comments for non-obvious intent, invariants, and ordering constraints. Do not restate obvious syntax or comment every trivial helper.
-- Keep explanations tied to the actual implementation so I can understand and defend its behavior and decisions.
+- Read the relevant code and tests before changing them. Prefer straightforward, focused changes.
+- Add concise docstrings and comments for meaningful behavior, side effects, constraints, and non-obvious intent. Use descriptive test names and explain test scenarios where useful.
+- Run checks appropriate to the change and report actual results and limitations. Do not weaken tests to make changes pass or claim verification from inspection alone.
+- Repeat checks when changes or unresolved concerns justify it, rather than routinely rechecking everything.
+- Commit or push only when requested or covered by a standing agreement. Do not discard existing work.
 
-## Evidence and repository operations
+## Project notes
 
-- Distinguish implemented, verified, and complete. Report the checks actually run, their results, and relevant limitations.
-- Connect verification to acceptance criteria. Do not claim execution from code inspection or treat mocks as evidence of a real integration.
-- After relevant checks pass, repeat or broaden them only when changes, failures, or unresolved concerns justify it.
-- Preserve existing tests and their intent. Do not weaken expectations to make a change pass without explaining a justified behavior change.
-- Inspect Git status before edits. Do not stage, commit, push, reset, or clean unless requested or covered by an explicit standing agreement.
-
-## Project documentation workflow
-
-- Apply this workflow when the project has a Project documentation workflow section in CLAUDE.local.md, or I explicitly request it. Do not initialize notes for unrelated tasks.
-- Find the notes folder in CLAUDE.local.md or my request. Read its CLAUDE.md before planning or implementing project work.
-- Use project-start when beginning a project and project-resume when continuing work in a fresh session. Planning and code explanations can happen in ordinary conversation.
-- If skills are unavailable, read the configured notes instructions directly and follow their recovery procedure. Do not silently create another notes directory.
-- Keep notes synchronized automatically as requirements, decisions, implementation, verification, and task status change. Do not wait for reminders or session end.
-- Update affected sections as events occur; do not rewrite every document after every tool call. Before responding, reconcile pending updates for the work performed.
-- Documentation claims must reflect actual state, including failures, unfinished work, uncertainty, and uncommitted changes.
-- If notes are inaccessible, explain the access issue and request the minimum access needed. Continue only work that does not depend on the missing context.
+- When a notes folder is specified in CLAUDE.local.md or my request, read its CLAUDE.md before project work and follow it throughout the session.
+- Keep notes current automatically as work progresses, without waiting for reminders or session end. Include partial progress, failures, and unverified behavior.
+- If the notes are missing or inaccessible, tell me rather than creating a replacement elsewhere.

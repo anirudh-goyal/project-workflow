@@ -14,17 +14,15 @@
 
 ## History
 
-Append dated entries with concise bullets, using the actual date/time and time zone. Record meaningful changes, discoveries, decisions by reference, useful failures, verification evidence, and next actions. Include real commit hashes when available; identify uncommitted work explicitly.
+Append dated bullets covering changes, checks, blockers, and next actions. Include commit hashes when available; identify uncommitted work.
 
-## Example — illustrative only
-
-This fictional customer-import example demonstrates the format. It is not a project requirement, decision, implementation, or verification result. Keep examples separate from live entries; do not copy their IDs or results into project state.
+## Example (fictional)
 
 ### 2026-01-15 10:20 UTC — CSV header validation
 
 - Added `validate_headers()` in `src/imports/csv_reader.py` to reject files missing the `email` column.
 - Completed T-EXAMPLE-001; the upload endpoint still needs to call the validator.
 - Ran `pytest tests/imports/test_csv_reader.py -q` from `/workspace/customer-import`: **4 passed**. These are parser unit tests; HTTP behavior remains unverified.
-- Changes are uncommitted; no commit was created.
+- Changes are uncommitted.
 - No known blockers.
 - Next: T-EXAMPLE-002, return HTTP 400 from the upload endpoint before any customer records are written.
