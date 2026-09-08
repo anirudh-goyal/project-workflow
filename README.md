@@ -88,7 +88,7 @@ Grant access to the notes folder when needed:
 
 - **Begin:** `/project-start` reads initial notes and helps establish the next steps.
 - **Work:** talk normally to refine the design, create tasks, implement changes, or explain code. Notes update automatically throughout.
-- **Continue in a fresh session:** `/project-resume` reads the notes and checks the code and working tree.
+- **Resume in a fresh session:** `/project-resume` summarizes progress, open issues, and reasonable next steps, then waits for you to choose what to work on.
 
 Both skills use the notes path in `CLAUDE.local.md`. You can also supply a path directly, such as `/project-start ../my-project-notes`.
 
