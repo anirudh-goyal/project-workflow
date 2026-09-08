@@ -19,7 +19,9 @@
 - Add concise docstrings and comments for meaningful behavior, side effects, constraints, and non-obvious intent. Use descriptive test names and explain test scenarios where useful.
 - Run checks appropriate to the change and report actual results and limitations. Do not weaken tests to make changes pass or claim verification from inspection alone.
 - Repeat checks when changes or unresolved concerns justify it, rather than routinely rechecking everything.
-- Commit or push only when requested or covered by a standing agreement. Do not discard existing work.
+- Commit automatically after each coherent, reasonably sized change is implemented and its relevant checks pass. Include related code, tests, and documentation in a focused commit with a clear message; do not wait until the whole task is finished.
+- Stage only changes belonging to that commit. Preserve unrelated work, and record the commit hash in the project progress notes when present.
+- Push only when requested or covered by a standing agreement.
 
 ## Project notes
 
