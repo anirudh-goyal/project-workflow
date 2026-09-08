@@ -1,16 +1,14 @@
 ---
 name: project-resume
-description: Recover a project's working context in a fresh coding-agent session using its notes and actual repository state. Use to resume documented work or recover after context loss.
+description: Continue documented project work in a fresh session by reading its notes and checking the actual code and working tree.
 ---
 
 # Resume project work
 
-1. Follow [context resolution](../project-start/references/context.md), including reading the notes CLAUDE.md. Do not initialize a replacement workspace when expected notes are missing.
-2. Read progress.md's current state and recent entries, active requirements/tasks, relevant design, adopted decisions, and technical architecture. Read older history only when needed to resolve a question.
-3. Inspect the actual codebase: current branch/HEAD, tracked and untracked changes, and relevant source/test files. With no Git repository, inspect files directly and state that Git history is unavailable.
-4. Compare the notes with current implementation and test evidence. A past passing result is historical evidence; relevant subsequent changes can invalidate it. Mark affected criteria unverified until checked. Do not reset status blindly or repair code during context recovery without task authorization.
-5. Surface material contradictions, unexpected changes, or a different checkout. Preserve user work. Reconcile notes when the evidence is clear; ask when intent is ambiguous.
-6. Give a concise briefing: current goal/task, implemented and verified behavior, outstanding uncertainty/blockers, and the next bounded action. Reference the critical files and symbols.
-7. Resume implementation when requested or when continuing a clearly authorized task. Otherwise finish the briefing without inventing a task. Maintain notes automatically throughout subsequent work.
+1. Find the notes folder from the user's message or the codebase's CLAUDE.local.md. Paths in that file are relative to the file; paths supplied in a command are relative to the working directory. Ask about a missing or conflicting location. If access is needed, ask the user to use `/add-dir` for that folder.
+2. Read the codebase's instructions and the notes folder's CLAUDE.md. Read progress.md's current state, active requirements/tasks, and relevant design, decisions, and architecture. Read older history only when needed. If expected notes are missing, explain what is missing instead of creating a replacement.
+3. Check the actual repository: branch, recent commits, tracked and untracked changes, and relevant source/tests. Without Git, inspect the files directly. Confirm these notes describe the current codebase.
+4. Reconcile clear discrepancies in the notes; ask when intent is uncertain. Preserve existing work. Past passing checks are historical evidence, not proof that later changes work. Record unfinished or unverified behavior honestly.
+5. Briefly explain the current goal, what works, outstanding issues, and the next action. Continue a clearly requested task, or finish the briefing if no implementation was requested.
 
-Recovery should establish useful working knowledge, not attempt an exhaustive repository survey. Do not claim expertise or completion merely from reading summaries.
+Keep notes updated throughout subsequent work according to their CLAUDE.md. Do not wait for a checkpoint command or session end. Reading summaries alone does not establish that the code is correct or complete.

@@ -39,8 +39,8 @@
 ## Project documentation workflow
 
 - Apply this workflow when the project has a Project documentation workflow section in CLAUDE.local.md, or I explicitly request it. Do not initialize notes for unrelated tasks.
-- Resolve the configured notes directory relative to CLAUDE.local.md unless it is absolute. Read that directory's CLAUDE.md before planning or implementing project work.
-- On a fresh session, follow project-resume to reconstruct existing work; use project-start for a new documentation workspace.
+- Find the notes folder in CLAUDE.local.md or my request. Read its CLAUDE.md before planning or implementing project work.
+- Use project-start when beginning a project and project-resume when continuing work in a fresh session. Planning and code explanations can happen in ordinary conversation.
 - If skills are unavailable, read the configured notes instructions directly and follow their recovery procedure. Do not silently create another notes directory.
 - Keep notes synchronized automatically as requirements, decisions, implementation, verification, and task status change. Do not wait for reminders or session end.
 - Update affected sections as events occur; do not rewrite every document after every tool call. Before responding, reconcile pending updates for the work performed.

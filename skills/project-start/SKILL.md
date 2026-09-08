@@ -1,16 +1,14 @@
 ---
 name: project-start
-description: Initialize or adopt a project's Markdown documentation workspace when the user starts the project workflow or supplies a notes directory. Preserve existing notes and establish context before implementation.
+description: Begin working with a project's existing Markdown notes, refine the initial design, and establish ongoing documentation. Use at the beginning of a project after setup.
 ---
 
-# Start a project workspace
+# Start project work
 
-1. Follow [context resolution](references/context.md). An explicit notes path is input, not authorization to overwrite documents or change an existing project binding.
-2. Inspect existing project instructions, Git status when available, and existing notes. Read any notes CLAUDE.md before modifying that workspace.
-3. For a new notes folder, use [the note templates](assets/notes/CLAUDE.md) and the six sibling Markdown files in that directory. Create only missing files; retain user content and customized rules. For existing notes, adopt their structure and reconcile missing pieces without reorganizing unprompted.
-4. Record absolute codebase and notes paths in progress.md's current-state section. If a persistent binding is missing, add the Project documentation workflow section to the codebase's CLAUDE.local.md, preserving other content. State which path was saved. Ensure local-only configuration is excluded from Git via the local exclude file when a repository exists; never commit as part of initialization.
-5. Read the supplied design/prompt and inspect only the relevant code path, tests, and development instructions. Discover actual run commands; label commands not yet run as unverified. For an empty codebase, record that no implementation exists.
-6. Populate only evidence-backed context, supplied requirements, and useful open questions. Distinguish a user proposal from an adopted design. Do not invent requirements to fill templates.
-7. Explain the current understanding, material questions, and a recommended next step briefly. Initialization alone does not authorize implementation. If the user also requested implementation, continue within that scope after resolving consequential uncertainty.
+1. Find the notes folder from the user's message or the codebase's CLAUDE.local.md. Paths in that file are relative to the file; paths supplied in a command are relative to the working directory. Ask if the location is missing or conflicts with an existing project. If access is needed, ask the user to use `/add-dir` for that folder.
+2. Read the codebase's instructions and the notes folder's CLAUDE.md. If setup is incomplete, use the downloaded workflow repository's README and templates when available, or ask where they are. Do not silently create a different notes folder. Never overwrite existing notes.
+3. Read the initial design and any existing requirements/tasks. Inspect Git status and the relevant source and tests; keep exploration focused. Record the actual codebase and notes paths in progress.md. For an empty project, say that implementation has not begun.
+4. Explain your understanding and the important open questions. Help refine the design with the user. When asked to plan, turn agreed behavior into requirements and tasks with completion conditions and dependencies, following the notes instructions.
+5. Continue with the requested work. Starting the workflow alone does not mean implementing the application. Keep the notes current automatically as work progresses, including decisions, task changes, failures, and verification results.
 
-The notes CLAUDE.md governs ongoing updates after initialization. Do not require a checkpoint command for maintenance. This skill and its sibling skills should be installed together; copied assets remain part of this skill.
+Planning and code explanations are ordinary conversation; they do not require separate skills. This installed skill uses the project's notes and does not depend on a copy of the workflow repository after setup.
