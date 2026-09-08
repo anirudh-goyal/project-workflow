@@ -1,23 +1,10 @@
 # Technical architecture
 
-Describe the actual implementation with links to files and functions. Proposed behavior belongs in [[design]].
+This living document explains how our implementation works and how it fits into the relevant existing systems. Update it as we learn about the codebase and implement or change behavior. Include enough surrounding context to understand the interactions, with links to real files and functions. Describe what exists today; proposed behavior belongs in [[design]]. Organize the explanation in whatever way best fits the project.
 
-## System purpose and boundaries
+## Running the code and tests
 
-## Concrete execution path
-
-## Components and source references
-
-| Component | Responsibility | File and symbol | Existing or changed |
-| --- | --- | --- | --- |
-
-## State, interfaces, and failure behavior
-
-## Development and verification commands
-
-Label commands unverified until actually executed. Link results from [[progress]].
-
-## Implemented changes and current limitations
+Record the setup, prerequisites, working directory, and commands needed to run the application and relevant tests. Mark commands unverified until executed; link results from [[progress]].
 
 ## Example (fictional)
 

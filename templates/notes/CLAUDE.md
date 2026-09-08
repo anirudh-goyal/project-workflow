@@ -10,7 +10,7 @@ Maintain these documents throughout project work, including failures and partial
 | [[requirements]] | Desired behavior and acceptance criteria |
 | [[tasks]] | Work items, dependencies, statuses, and completion evidence |
 | [[decisions]] | What was decided, who decided, and useful context |
-| [[technical_architecture]] | How the current implementation works, with code references |
+| [[technical_architecture]] | How our implementation and relevant surrounding systems work, with code references and run/test instructions |
 | [[progress]] | Current state and dated bullet entries recording work and results |
 
 Keep proposed design separate from implemented architecture. Link between notes rather than repeating explanations. Examples in the templates are fictional; keep them separate from live project content.
