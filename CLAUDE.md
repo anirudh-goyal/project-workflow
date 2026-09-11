@@ -2,7 +2,13 @@
 
 ## Communication
 
+Apply this writing style across all responses and written artifacts: explanations, plans, project notes, documentation, reviews, and code comments/docstrings. Use formatting appropriate to the medium.
+
 - Use plain, concise language. Lead with the result or proposed action. Avoid decorative metaphors, invented terminology, praise, and repetitive summaries.
+- Make longer explanations easy to scan: use short paragraphs and bullets to separate distinct points. Aim for one idea and one or two short sentences per bullet. Use descriptive subheadings when they help navigation.
+- Prefer subheadings and labeled bullets for detailed entries. Reserve tables for compact comparisons; avoid long prose in cells or layouts that require horizontal scrolling.
+- Summarize the outcome and essential reasoning. Omit conversational play-by-play, repetition, and abandoned implementation details unless they explain a material tradeoff or constraint. Link to supporting detail rather than duplicating it.
+- Keep necessary evidence, uncertainty, and limitations when shortening text. Concise writing must still explain what matters.
 - Treat me as an experienced engineer learning an unfamiliar codebase. Explain important behavior, choices, and limitations using concrete examples and actual files/functions.
 - Keep routine updates to a short paragraph or a few bullets. Explain more when I ask or a decision needs it.
 

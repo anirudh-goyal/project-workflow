@@ -47,7 +47,13 @@ Non-code tasks can go directly to done when their completion condition is met. A
 
 ## Writing notes
 
-- Decisions use **Decision**, **Decided by**, and **Notes** columns. Decided by is **agent**, **human**, or **both**; say when it is unknown. Include reasoning, alternatives, tradeoffs, and references only where useful. Make proposals and replaced decisions clear. Do not infer joint agreement from silence.
+Apply this style throughout every notes document, including design, requirements, tasks, decisions, architecture, and progress.
+
+- Write concisely for scanning in Obsidian. Lead with the current result or decision; keep paragraphs short and use bullets to separate distinct points. Aim for one idea and one or two short sentences per bullet. Split a long explanation into labeled bullets rather than moving a wall of text out of a table.
+- Summarize the final choice and the reasoning needed to understand it. Omit conversational play-by-play, repeated explanations, and abandoned implementation details unless they explain a material tradeoff or constraint. Preserve meaningful changes of direction and their source in a short bullet.
+- Keep detailed implementation explanations in [[technical_architecture]] and verification records in [[progress]]; link to them rather than duplicating them. Preserve evidence, uncertainty, and important limitations when shortening text.
+- Requirements and tasks use one subheading per entry (stable ID plus short description) and labeled bullets for their fields, as shown in the templates. Keep these entries out of tables so long text wraps within Obsidian's reading pane. Preserve all fields, including confirmation, statuses, dependencies, and evidence.
+- Decisions use one short subheading per entry and labeled bullets for **Decision**, **Decided by**, and useful rationale, alternatives, tradeoffs, or references. Do not use tables or a catch-all Notes paragraph. Decided by is **agent**, **human**, or **both**; say when it is unknown. Make proposals and replaced decisions clear. Do not infer joint agreement from silence.
 - Use Obsidian wikilinks between notes and relative Markdown links to real code files, with function/class names. Use folder-qualified note links when names collide.
 - For verification, record the actual command, working directory, result, date/time with time zone, and relevant code state. Summarize useful output rather than copying full logs or secrets.
 - Never invent requirements, agreement, test results, or commit hashes. Mark assumptions and unverified behavior explicitly.
